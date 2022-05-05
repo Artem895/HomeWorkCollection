@@ -1,2 +1,2 @@
 # HomeWorkCollection
-<h3>В файле вывод по колекциям представkено сравнение  MyLinkedList и LinkedList </h3>
+<h3>В файле вывод по колекциям представлено сравнение  MyLinkedList и LinkedList </h3>
