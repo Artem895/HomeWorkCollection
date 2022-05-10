@@ -7,7 +7,6 @@ import java.util.LinkedList;
 
 public class MainClass {
     public static void main(String[] args) {
-        long start=System.nanoTime();
         MyLinkedList<String> myLinkedList=new MyLinkedList<>();
         myLinkedList.add("Hello");
         myLinkedList.add("Hello1");
@@ -15,40 +14,27 @@ public class MainClass {
         myLinkedList.add("Hello3");
         myLinkedList.add("Hello4");
         myLinkedList.add("Hello5");
-        long finish = System.nanoTime();
-        long timeElapsed = finish-start;
-        System.out.println(timeElapsed+"-Время добавления последнего MyLinkedList");
-        start=System.nanoTime();
-        LinkedList<String> linkedList=new LinkedList<>();
-        linkedList.add("Hello");
-        linkedList.add("Hello1");
-        linkedList.add("Hello2");
-        linkedList.add("Hello3");
-        linkedList.add("Hello4");
-        linkedList.add("Hello5");
-        finish=System.nanoTime();
-        long timeElapsed1 = finish-start;
-        System.out.println(timeElapsed1+"-Время добавления последнего LinkedList");
-        start=System.nanoTime();
         System.out.println(myLinkedList.get(4));
-        finish=System.nanoTime();
-        timeElapsed=finish-start;
-        System.out.println(timeElapsed+"-Время поиска 4 элемента MyLinkedList");
-        start=System.nanoTime();
-        System.out.println(linkedList.get(4));
-        finish=System.nanoTime();
-        timeElapsed=finish-start;
-        System.out.println(timeElapsed+"-Время поиска 4 элемента LinkedList");
-        start=System.nanoTime();
+        System.out.println(myLinkedList);
         myLinkedList.remove(4);
-        finish=System.nanoTime();
-        timeElapsed=finish-start;
-        System.out.println(timeElapsed+"-Время удаления 4 элемента MyLinkedList");
-        start=System.nanoTime();
-        linkedList.remove(4);
-        finish=System.nanoTime();
-        timeElapsed=finish-start;
-        System.out.println(timeElapsed+"-Время удаления 4 элемента LinkedList");
+        System.out.println(myLinkedList);
+        myLinkedList.add(3,"InsertHello");
+        myLinkedList.add(1,"InsertHello");
+        System.out.println(myLinkedList);
+        System.out.println(myLinkedList.indexOf("InsertHello"));
+        myLinkedList.set(3,"SetHello");
+        System.out.println(myLinkedList);
+        System.out.println(myLinkedList.size());
+        Object[] res=myLinkedList.toArray();
+        for(Object s:res){
+            System.out.println(s);
+        }
+        String[] nextres=myLinkedList.toArray( new String[1]);
+        for (String s:nextres){
+            System.out.println(s);
+        }
+        myLinkedList.clear();
+        System.out.println(myLinkedList);
 
     }
 }
