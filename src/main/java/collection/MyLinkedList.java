@@ -19,16 +19,9 @@ public class MyLinkedList<E> implements ILinkedList<E>{
         Node(E element, Node<E> nextNode) {
             this.element= element;
             this.nextNode = nextNode;
-            //this.predNode=predNode;
+
         }
 
-        /*@Override
-        public String toString() {
-            return "Node{" +
-                    "element=" + element +
-                    ", nextNode=" + nextNode +
-                    '}';
-        }*/
     }
     @Override
     public void add(E element) {
@@ -41,15 +34,6 @@ public class MyLinkedList<E> implements ILinkedList<E>{
         else {
             l.nextNode = newNode;
         }
-        /*if(size==1){
-            midle=first;
-        } else {
-            Node<E> x=first;
-            for(int i=0;i<=((size-1)/2);i++){
-                midle=x;
-                x=x.nextNode;
-            }
-        }*/
         findmidle();
         size++;
     }
@@ -151,7 +135,8 @@ public class MyLinkedList<E> implements ILinkedList<E>{
     @Override
     public <T> T[] toArray(T[] a) {
         if(a.length<size){
-            a=Arrays.copyOf(a,size);
+            a=(T[])java.lang.reflect.Array.newInstance(
+                    a.getClass().getComponentType(), size);
         }
         int i=0;
         Object[] res = a;
@@ -204,15 +189,6 @@ public class MyLinkedList<E> implements ILinkedList<E>{
         }
         size++;
         findmidle();
-        /*if(size==1){
-            midle=first;
-        } else {
-            Node<E> x=first;
-            for(int i=0;i<=((size-1)/2);i++){
-                midle=x;
-                x=x.nextNode;
-            }
-        }*/
     }
     private boolean isElementIndex(int index) {
         return index >= 0 && index < size;
